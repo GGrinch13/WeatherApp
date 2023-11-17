@@ -33,6 +33,8 @@ def get_weather(city):
             'local_time': local_time, 'text': text, 'icon': icon}
     except KeyError:
         return {'error': 'Please enter a valid city name.'}
+    except requests.RequestException as e:
+        return {'error': f'RequestException: {e}'}
 
 
 @app.route("/", methods=["GET", "POST"])
