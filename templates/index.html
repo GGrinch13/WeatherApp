@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Weather</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='index.css') }}">
+
+</head>
+<body>
+  <a href="about.html"><button class="button">About</button></a>
+    <div class="container">
+        <h1>Weather</h1>
+        <form method="post" action="/">
+            <label for="city">Enter City:</label>
+            <input type="text" name="city" id="city" required>
+            <input type="submit" value="Get Weather">
+        </form>
+
+        {% if error %}
+        <script>
+            window.onload = function() {
+                alert("{{ error }}");
+            }
+        </script>
+        {% endif %}
+
+        <div class="weather-info">
+            <div class="weather-item">
+                
+                <p class="temp">°C:  {{temp_c}} °F: {{temp_f}} </p>
+                <p class="condition">Feels like:°C {{feelslike_c}} °F {{feelslike_f}} </p>
+                <p class="condition"> Wind: {{wind_mph}} MPH | {{wind_kph}} KPH</p>
+                <p class="condition"> humidity: {{humidity}}</p>
+                <p class="condition"> time: {{local_time}}</p>
+                <p class="condition"> Current: {{text}}</p>
+                <img src="{{icon}}" alt="Weather Icon" width="140px" height="140px">
+
+            </div>
+            
+        </div>
+    </div>
+</body>
+</html>
