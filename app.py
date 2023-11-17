@@ -1,8 +1,12 @@
 import requests
 from flask import Flask, render_template, request
 
+
+
+
 app = Flask(__name__)
 api_key = "138eb12bb53a4dc3980163106232204"
+
 def get_weather(city):
     try:
         url = f"http://api.weatherapi.com/v1/current.json?key={api_key}&q={city}"
@@ -42,5 +46,5 @@ def about_page():
     return render_template("about.html"), 200
 
 
-if __name__ == "__main__":
-    app.run(debug=True)
+# if __name__ == "__main__":
+#     app.run(debug=True)
