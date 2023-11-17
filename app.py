@@ -1,11 +1,5 @@
 import requests
 from flask import Flask, render_template, request
-import os
-
-api_key = os.environ.get("WEATHER_API_KEY")
-
-
-
 
 
 app = Flask(__name__)
@@ -33,8 +27,6 @@ def get_weather(city):
             'local_time': local_time, 'text': text, 'icon': icon}
     except KeyError:
         return {'error': 'Please enter a valid city name.'}
-    except requests.RequestException as e:
-        return {'error': f'RequestException: {e}'}
 
 
 @app.route("/", methods=["GET", "POST"])
@@ -53,5 +45,4 @@ def about_page():
 
 
 if __name__ == "__main__":
-    app.run(port=int(os.environ.get("PORT", 5000)))
-
+    app.run()
