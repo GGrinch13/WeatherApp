@@ -1,5 +1,9 @@
 import requests
 from flask import Flask, render_template, request
+import os
+
+api_key = os.environ.get("WEATHER_API_KEY")
+
 
 
 
@@ -47,4 +51,5 @@ def about_page():
 
 
 if __name__ == "__main__":
-    app.run()
+    app.run(port=int(os.environ.get("PORT", 5000)))
+
