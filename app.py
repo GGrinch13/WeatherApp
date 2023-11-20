@@ -44,5 +44,6 @@ def about_page():
     return render_template("about.html"), 200
 
 
-if __name__ == "__main__":
-    app.run()
+# Uncomment this if developing
+# with app.app_context():
+#    app.run()
